@@ -8,6 +8,7 @@ function SignupPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [image, setImage] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ function SignupPage(props) {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
+  const handleImage = (e) => setImage(e.target.value);
 
   const handleSignupSubmit = async (e) => {
     try {
@@ -26,13 +28,13 @@ function SignupPage(props) {
       await axios.post(
         'http://localhost:5005/auth/signup',
         requestBody,
-        { headers: { Authorization: `Bearer ${authToken}`} }
+        { headers: { Authorization: `Bearer ${authToken}` } }
       )
 
       // or with a service
       // await authService.signup(requestBody);
 
-      
+
       // If the request is successful navigate to login page
       navigate("/login");
     } catch (error) {
@@ -59,6 +61,9 @@ function SignupPage(props) {
 
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
+
+        <label>Picture:</label>
+        <input type="text" name="image" value={image} onChange={handleImage} />
 
         <button type="submit">Sign Up</button>
       </form>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-class ExampleService {
+class PostService {
   constructor() {
     this.api = axios.create({
       baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
@@ -19,35 +19,35 @@ class ExampleService {
     });
   }
 
-  // POST /api/examples
-  createOne = async (requestBody) => {
-    return this.api.post('/api/examples', requestBody);
+  // POST /api/posts
+  createPost = async (requestBody) => {
+    return this.api.post('/api/posts', requestBody);
   }
 
-  // GET /api/examples
-  getAll = async () => {
-    return this.api.get('/api/examples');
+  // GET /api/posts
+  displayAll = async () => {
+    return this.api.get('/api/posts');
   }
 
-  // GET /api/examples/:id
-  getOne = async (id) => {
-    return this.api.get(`/api/examples/${id}`);
+  // GET /api/posts/:postId
+  getPost = async ({ postId }) => {
+    return this.api.get(`/api/posts/${postId}`);
   }
 
-  // PUT /api/examples/:id
-  updateOne = async (id, requestBody) => {
-    return this.api.put(`/api/examples/${id}`, requestBody);
+  // PUT /api/posts/:id
+  editPost = async ({ postId }) => {
+    return this.api.put(`/api/posts/${postId}`);
   }
 
-  // DELETE /api/examples/:id
-  deleteProject = async (id) => {
-    return this.api.delete(`/api/examples/${id}`);
-  } 
+  // DELETE /api/posts/:id
+  deletePost = async ({ postId }) => {
+    return this.api.delete(`/api/posts/${postId}`);
+  }
 
 
 }
 
 // Create one instance of the service
-const exampleService = new ExampleService();
+const postService = new PostService();
 
-export default exampleService;
+export default postService;

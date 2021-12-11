@@ -5,6 +5,8 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
+
+
 import authService from "../../services/auth.service";
 
 function LoginPage(props) {
@@ -44,6 +46,7 @@ function LoginPage(props) {
       // If the request resolves with an error, set the error message in the state
       setErrorMessage("Something went wrong");
     }
+
   };
 
   return (

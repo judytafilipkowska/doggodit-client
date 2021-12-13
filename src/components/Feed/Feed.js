@@ -2,9 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import AddPost from "./AddPost/AddPost";
 import PostBox from "./PostBox/PostBox";
-import postService from "../../services/example.service";
-import { getNodeText } from "@testing-library/react";
-
+import postService from "../../services/post.service";
 
 function Feed() {
 
@@ -25,10 +23,15 @@ function Feed() {
 
     return (
         <div>
+
+            <h1>Add psot </h1>
+            <AddPost refreshPost={displayAll} />
+
+
             <h1>Feed</h1>
             {posts.map((post) => (
                 <PostBox key={postService._id} post={post} />
-            ))};
+            ))}
         </div>
 
     );

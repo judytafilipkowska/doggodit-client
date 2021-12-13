@@ -1,38 +1,40 @@
-import axios from "axios";
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import authService from "../../services/auth.service";
+import fileService from "../../services/file.service";
 
-function SignupBox(props) {
+function SignupBox() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [errorMessage, setErrorMessage] = useState(undefined);
-
     const navigate = useNavigate();
 
     const handleEmail = (e) => setEmail(e.target.value);
     const handlePassword = (e) => setPassword(e.target.value);
     const handleName = (e) => setName(e.target.value);
-    const handleImage = (e) => setImage(e.target.value);
+    const handleImage = async (e) => {
+        try {
+            const uploadData = new FormData();
+            uploadData.append("image", e.target.files[0])
+            const response = await fileService.uploadImage(uploadData);
+            setImage(response.data.secure_url);
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const handleSignupSubmit = async (e) => {
         try {
             e.preventDefault();
             // Create an object representing the request body
-            const requestBody = { email, password, name };
+            const requestBody = { email, password, name, image };
 
-            const authToken = localStorage.getItem('authToken');
-            await axios.post(
-                'http://localhost:5005/auth/signup',
-                requestBody,
-                { headers: { Authorization: `Bearer ${authToken}` } }
-            )
 
-            // or with a service
-            // await authService.signup(requestBody);
+            await authService.signup(requestBody);
 
 
             // If the request is successful navigate to login page
@@ -63,7 +65,8 @@ function SignupBox(props) {
                 <input type="text" name="name" value={name} onChange={handleName} />
 
                 <label>Picture:</label>
-                <input type="text" name="image" value={image} onChange={handleImage} />
+                <input type="file" onChange={handleImage} />
+
 
                 <button type="submit">Sign Up</button>
             </form>

@@ -1,29 +1,41 @@
-import { getNodeText } from "@testing-library/react";
-import axios from "axios";
 import { useState } from "react";
-import postService from "../../../services/example.service";
-
+import Select from 'react-select';
+import postService from '../../../services/post.service';
+import fileService from "../../../services/file.service";
 
 function AddPost({ refreshPost, userId }) {
 
-    const [textPost, setTextPost] = useState("");
-    const [postImage, setPostImage] = useState("");
+    const actions = [
+        { label: "question", value: 1 },
+        { label: "showing off", value: 2 },
+        { label: "just sharing", value: 3 },
+        { label: "help", value: 4 }
+    ]
 
-    const handleTexPost = (e) => setTextPost(e.target.value);
+    const [postText, setPostText] = useState("");
+    const [postImage, setPostImage] = useState("");
+    const handlePostImage = async (e) => {
+        try {
+            const uploadData = new FormData();
+            uploadData.append("image", e.target.files[0])
+            const response = await fileService.uploadImage(uploadData);
+            setPostImage(response.data.secure_url);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const handleTextPost = (e) => setPostText(e.target.value);
     const handleSubmit = async (e) => {
         try {
             e.preventDefault();
 
-            const requestBody = { tag: "from select", textPost, postImage, createdBy: userId }
+            const requestBody = { postText, postImage, createdBy: userId }
 
-            const token = localStorage.getItem('authToken');
-            await axios.post(
-                `${process.env.REACT_APP_SERVER_URL}/api/posts`, requestBody, { headers: { Authorization: "Bearer " + token } });
+            const response = await postService.createPost(requestBody, userId);
+            setPostText("");
 
-            setTextPost("");
-            setPostImage("");
 
-            refreshPost();
+            refreshPost(response);
         } catch (error) {
             console.log(error)
         }
@@ -33,17 +45,12 @@ function AddPost({ refreshPost, userId }) {
             <h4>Create a post here</h4>
             <form onSubmit={handleSubmit}>
                 <label>Tag:</label>
-                <select id="tag" name="tag">
-                    <option selected value="question">question</option>
-                    <option value="showing off">showing off</option>
-                    <option value="just sharing">just sharing</option>
-                    <option value="help">help</option>
-                </select>
-
-                <input type="text" name="postText" value={textPost} onChange={handleTexPost} />
+                <Select options={actions} />
+                <label>Text</label>
+                <input type="text" name="postText" value={postText} onChange={handleTextPost} />
 
                 <label>Add a pic</label>
-                <input type="file" name="postText" accept="image/png, image/jpeg" value={postImage} onChange={setPostImage} />
+                <input type="file" onChange={handlePostImage} />
 
                 <button type="submit">Post it</button>
             </form>

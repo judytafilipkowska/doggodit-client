@@ -5,18 +5,18 @@ import { useParams } from "react-router";
 
 function PostBox({ post }) {
 
-    const [name, setName] = useState(null);
-    const { userId } = useParams();
+    // const [name, setName] = useState(null);
+    // const { userId } = useParams();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await axios.get(`mongodb://localhost:27017/doggodit/users`)
-            setName(response.data)
-            console.log(response)
-        }
-        fetchData();
-    }, [userId]
-    )
+    // useEffect((userId) => {
+    //     const fetchData = async () => {
+    //         const response = await axios.get()
+    //         setName(response.data)
+    //         console.log(response)
+    //     }
+    //     fetchData();
+    // }, [userId]
+    // )
 
 
 

@@ -47,7 +47,7 @@ function EditBox() {
             setNameUpdate(user.name);
             setImageUpdate(user.image);
         }
-    }, []);
+    }, [user]);
     return (
         <div className="SignupPage">
             <h2>edit here</h2>

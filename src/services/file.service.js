@@ -21,6 +21,7 @@ class FileService {
 
     uploadImage = (file) => {
         // axios.post()
+
         return this.api.post("/api/upload", file);
     };
 }

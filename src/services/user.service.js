@@ -36,17 +36,17 @@ class UserService {
         return this.api.get('/api/users/current/posts');
     }
     // GET /api/users/current/posts/:postId
-    onePostOfCurrentUser = async ({ postId }) => {
+    onePostOfCurrentUser = async (postId) => {
         return this.api.get(`/api/users/current/posts/${postId}`);
 
     }
-    // delete /api/users/current/posts/:postId/delete
-    deleteOnePostOfCurrentUser = async ({ postId }) => {
-        return this.api.get(`/api/users/current/posts/${postId}/delete`);
+    // delete /api/users/current/posts/:postId
+    deleteOnePostOfCurrentUser = async (postId) => {
+        return this.api.delete(`/api/users/current/posts/${postId}`);
     }
     //PUT /api/users/current/posts/:postId/edit
-    editOnePostOfCurrentUser = async ({ postId }) => {
-        return this.api.get(`/api/users/current/posts/${postId}/edit`);
+    editOnePostOfCurrentUser = async (postId, requestBody) => {
+        return this.api.put(`/api/users/current/posts/${postId}/edit`, requestBody);
     }
 
 

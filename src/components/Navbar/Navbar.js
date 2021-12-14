@@ -7,6 +7,7 @@ function Navbar() {
   // Get the value from the context
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
+
   return (
     <nav className="Navbar">
       <Link to="/">

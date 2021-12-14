@@ -22,9 +22,12 @@ function SignupBox() {
             const uploadData = new FormData();
             uploadData.append("image", e.target.files[0])
             const response = await fileService.uploadImage(uploadData);
-            setImage(response.data.secure_url);
+
+            setImage(response.data.secure_url)
+
+            return
         } catch (error) {
-            console.log(error)
+            setErrorMessage("Something went wrong")
         }
     }
 
@@ -32,7 +35,7 @@ function SignupBox() {
         try {
             e.preventDefault();
             // Create an object representing the request body
-            const requestBody = { email, password, name, image };
+            const requestBody = { email, password, name };
 
 
             await authService.signup(requestBody);
@@ -66,7 +69,7 @@ function SignupBox() {
                 <input type="text" name="name" value={name} onChange={handleName} />
 
                 <label>Picture:</label>
-                <input type="file" onChange={handleImage} />
+                <input type="file" value={image} onChange={handleImage} />
 
 
                 <button type="submit">Sign Up</button>

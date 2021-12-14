@@ -3,11 +3,12 @@ import fileService from "../../services/file.service";
 import userService from "../../services/user.service";
 import { useNavigate } from "react-router";
 import { AuthContext } from './../../context/auth.context'
-//!is not updating the info
+
 function EditBox() {
     const [emailUpdate, setEmailUpdate] = useState("");
     const [nameUpdate, setNameUpdate] = useState("");
     const [imageUpdate, setImageUpdate] = useState("");
+    const [errorMessage, setErrorMessage] = useState(undefined);
     const navigate = useNavigate();
     const { user, setUser } = useContext(AuthContext);
 
@@ -19,9 +20,10 @@ function EditBox() {
             const uploadData = new FormData();
             uploadData.append("image", e.target.files[0]);
             const response = await fileService.uploadImage(uploadData);
+
             setImageUpdate(response.data.secure_url)
         } catch (error) {
-            console.log(error);
+            setErrorMessage("Something went wrong")
         }
     }
 
@@ -31,12 +33,13 @@ function EditBox() {
             let email = emailUpdate;
             let name = nameUpdate;
             let image = imageUpdate
+
             const requestBody = { email, name, image };
             const response = await userService.updateCurrentUser(requestBody);
             setUser(response.data)
             navigate("/profile");
         } catch (error) {
-            console.log(error)
+            setErrorMessage("Something went wrong")
         }
     }
 
@@ -48,6 +51,7 @@ function EditBox() {
             setImageUpdate(user.image);
         }
     }, [user]);
+
     return (
         <div className="SignupPage">
             <h2>edit here</h2>

@@ -33,18 +33,6 @@ class PostService {
   getPost = async ({ postId }) => {
     return this.api.get(`/api/posts/${postId}`);
   }
-
-  // PUT /api/posts/:id
-  editPost = async ({ postId }) => {
-    return this.api.put(`/api/posts/${postId}`);
-  }
-
-  // DELETE /api/posts/:id
-  deletePost = async ({ postId }) => {
-    return this.api.delete(`/api/posts/${postId}`);
-  }
-
-
 }
 
 // Create one instance of the service

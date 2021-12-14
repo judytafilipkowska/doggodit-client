@@ -11,6 +11,7 @@ import IsAnon from "../../components/IsAnon/IsAnon";
 function Feed() {
 
     const [posts, setPosts] = useState([]);
+    const [errorMessage, setErrorMessage] = useState(undefined);
 
     const displayAll = async () => {
         try {
@@ -18,7 +19,7 @@ function Feed() {
 
             setPosts(response.data);
         } catch (error) {
-            console.log(error)
+            setErrorMessage("Something went wrong")
         }
     };
     useEffect(() => {
@@ -28,7 +29,7 @@ function Feed() {
     return (
         <div>
             <IsPrivate>
-                <h1>Add psot </h1>
+                <h1>Add post </h1>
                 <AddPost refreshPost={displayAll} />
             </IsPrivate>
 

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import fileService from "../../services/file.service";
 
+
 function SignupBox() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

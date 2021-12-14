@@ -1,16 +1,8 @@
 import { useState } from "react";
-import Select from 'react-select';
 import postService from '../../../services/post.service';
 import fileService from "../../../services/file.service";
 
 function AddPost({ refreshPost, userId }) {
-
-    const actions = [
-        { label: "question", value: 1 },
-        { label: "showing off", value: 2 },
-        { label: "just sharing", value: 3 },
-        { label: "help", value: 4 }
-    ]
 
     const [postText, setPostText] = useState("");
     const [postImage, setPostImage] = useState("");
@@ -44,8 +36,7 @@ function AddPost({ refreshPost, userId }) {
         <div>
             <h4>Create a post here</h4>
             <form onSubmit={handleSubmit}>
-                <label>Tag:</label>
-                <Select options={actions} />
+
                 <label>Text</label>
                 <input type="text" name="postText" value={postText} onChange={handleTextPost} />
 

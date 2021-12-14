@@ -49,7 +49,7 @@ function EditBox() {
         }
     }, []);
     return (
-        <div>
+        <div className="SignupPage">
             <h2>edit here</h2>
 
             <form onSubmit={handleUpdateSubmit}>

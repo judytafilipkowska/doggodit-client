@@ -32,7 +32,7 @@ function LoginBox(props) {
             const token = response.data.authToken;
             logInUser(token);
 
-            navigate("/");
+            navigate("/profile");
         } catch (error) {
             // If the request resolves with an error, set the error message in the state
             setErrorMessage("Something went wrong");
@@ -51,6 +51,7 @@ function LoginBox(props) {
                 <input type="password" name="password" value={password} onChange={handlePassword} />
 
                 <button type="submit">Login</button>
+
             </form>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 

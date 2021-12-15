@@ -30,6 +30,7 @@ function LoginBox(props) {
 
             // Save the token and set the user as logged in ...
             const token = response.data.authToken;
+
             logInUser(token);
 
             navigate("/profile");

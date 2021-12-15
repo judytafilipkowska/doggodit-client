@@ -4,6 +4,11 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
+import Feed from "../../components/Feed/Feed";
+
 
 
 
@@ -15,7 +20,7 @@ function LoginPage(props) {
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   // Get the function for saving and verifying the token
-  const { logInUser } = useContext(AuthContext);
+  const { logInUser, user } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -49,24 +54,41 @@ function LoginPage(props) {
 
   };
 
-  return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+  return !user ? (
+    <>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="text" name="email" value={email} onChange={handleEmail} />
+      <Grid container spacing={3}>
 
-        <label>Password:</label>
-        <input type="password" name="password" value={password} onChange={handlePassword} />
+        <div className="LoginPage">
+          <h1>Login</h1>
 
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <form onSubmit={handleLoginSubmit}>
+            <label>Email:</label>
+            <input type="text" name="email" value={email} onChange={handleEmail} />
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
-    </div>
+            <label>Password:</label>
+            <input type="password" name="password" value={password} onChange={handlePassword} />
+
+            <button type="submit">Login</button>
+          </form>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+          <p>Don't have an account yet?</p>
+          <Link to={"/signup"}> Sign Up</Link>
+        </div>
+        {/* <Grid item xs>
+          <Item>  <LoginBox /> </Item>
+        </Grid> */}
+        <Grid item xs={6}>
+          <Item> <Feed /></Item>
+        </Grid>
+        <Grid item xs>
+          <Item> HERE DOG </Item>
+        </Grid>
+      </Grid>
+    </>
+  ) : (
+    <h1>Already logged in</h1>
   );
 }
 

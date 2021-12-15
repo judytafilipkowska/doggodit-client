@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-import { useEffect } from "react";
+
 import { Link } from "react-router-dom";
-import AllPosts from "./AllPosts/AllPosts";
+
 
 
 
 function ProfileBox() {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOutUser } = useContext(AuthContext);
 
     return (
 
@@ -24,7 +24,9 @@ function ProfileBox() {
                 <Link to="/user/edit">
                     <p>Edit</p>
                 </Link>
-                <p>Log out</p>
+
+                <p onClick={logOutUser} >Log out</p>
+
             </div>
         </div>
 

@@ -10,7 +10,7 @@ function Navbar() {
 
   return (
     <nav className="Navbar">
-      <Link to="/">
+      {/* <Link to="/">
         <button>Home</button>
       </Link>
 
@@ -30,7 +30,7 @@ function Navbar() {
             <button>Login</button>
           </Link>
         </>
-      )}
+      )} */}
 
       <div className="profile-img-wrapper">
         {user && (

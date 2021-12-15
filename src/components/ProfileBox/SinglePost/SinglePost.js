@@ -9,19 +9,24 @@ function SinglePost() {
     const [post, setPost] = useState([]);
     const [errorMessage, setErrorMessage] = useState(undefined);
     const { postId } = useParams();
+
+
     const navigate = useNavigate();
 
-    const onePostOfCurrentUser = async () => {
-
-        try {
-            const response = await userService.postsOfCurrentUser();
-            setPost(response.data);
-        } catch (error) {
-            setErrorMessage("Something went wrong");
-        }
-    }
 
     useEffect(() => {
+        const onePostOfCurrentUser = async () => {
+
+            try {
+                const response = await userService.onePostOfCurrentUser(postId);
+                setPost(response.data);
+                console.log(post)
+
+            } catch (error) {
+                setErrorMessage("Something went wrong");
+            }
+        }
+
         onePostOfCurrentUser();
     }, [])
 
@@ -42,7 +47,7 @@ function SinglePost() {
                     <p>{post.postText}</p>
                     <img src={post.postImage} alt="pic-pic" style={{ width: "200px" }} />
 
-                    <Link to="/user/posts/:postId/edit">
+                    <Link to={`/user/posts/${post._id}/edit`}>
                         <h2>Edit</h2>
                     </Link>
                     <button onClick={deletePost}>Delete</button>

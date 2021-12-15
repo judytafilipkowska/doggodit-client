@@ -30,8 +30,14 @@ class PostService {
   }
 
   // GET /api/posts/:postId
-  getPost = async ({ postId }) => {
+  getPost = async (postId) => {
     return this.api.get(`/api/posts/${postId}`);
+  }
+
+  // POST /api/comment
+  createComment = async (requestBody) => {
+    console.log("POSTSERVICES REQ BODY", requestBody)
+    return this.api.post(`/api/comment`, requestBody)
   }
 }
 

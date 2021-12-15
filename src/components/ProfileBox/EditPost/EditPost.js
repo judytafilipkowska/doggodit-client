@@ -4,9 +4,12 @@ import { useParams, useNavigate } from "react-router";
 import userService from "../../../services/user.service";
 
 
-function AddPost() {
+function EditPost() {
 
-    const { refreshPost, postId } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+
+    const { postId } = useParams();
+
 
     const [postText, setPostText] = useState("");
     const [errorMessage, setErrorMessage] = useState(undefined);
@@ -37,7 +40,7 @@ function AddPost() {
             const requestBody = { postText }
 
             const response = await userService.editOnePostOfCurrentUser(postId, requestBody);
-            setPostText("");
+            setPostText(response);
 
             navigate(`/`);
 
@@ -45,6 +48,16 @@ function AddPost() {
             setErrorMessage("Something went wrong")
         }
     }
+
+    const deletePost = async () => {
+        try {
+            const response = await userService.deleteOnePostOfCurrentUser(postId)
+            navigate("/user/posts")
+        } catch (error) {
+            setErrorMessage("Something went wrong");
+        }
+    }
+
 
     return (
         <div>
@@ -55,9 +68,10 @@ function AddPost() {
                 <input type="text" name="postText" value={postText} onChange={handleTextPost} />
 
                 <button type="submit">Save</button>
+                <button onClick={deletePost}>Delete the post</button>
             </form>
         </div>
     );
 }
 
-export default AddPost;
+export default EditPost;

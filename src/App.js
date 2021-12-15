@@ -15,21 +15,24 @@ import EditBox from "./components/EditBox/EditBox";
 import AllPosts from "./components/ProfileBox/AllPosts/AllPosts";
 import IsPrivate from './components/IsPrivate/IsPrivate';
 import IsAnon from "./components/IsAnon/IsAnon";
-import PostBox from "./components/Feed/PostBox/PostBox";
+
 import EditPost from "./components/ProfileBox/EditPost/EditPost"
 import SinglePost from "./components/ProfileBox/SinglePost/SinglePost";
 
+
 function App() {
+
+
+
   return (
     <div className="App">
       <Navbar />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-
-        <Route path="/profile" element={<IsPrivate> <ProfileBox /> </IsPrivate>} />
         <Route path="/signup" element={<IsAnon> <SignupBox /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <LoginBox /> </IsAnon>} />
+        <Route path="/profile" element={<IsPrivate> <ProfileBox /> </IsPrivate>} />
         <Route path="/user/edit" element={<IsPrivate><EditBox /></IsPrivate>} />
         <Route path="/user/posts" element={<IsPrivate><AllPosts /></IsPrivate>} />
         {/* <Route path="/user/posts/:postId" element={<IsPrivate><PostBox /></IsPrivate>} /> */}
@@ -37,6 +40,7 @@ function App() {
         <Route path="/user/posts/:postId/edit" element={<IsPrivate><EditPost /></IsPrivate>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+
     </div>
   );
 }

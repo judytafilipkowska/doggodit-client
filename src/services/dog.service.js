@@ -20,9 +20,9 @@ class DogService {
     }
 
     // get/api/doglist
-    getAllDogs = async (data) => {
-        console.log(data)
-        return this.api.get('/api/doglist', data);
+    getAllDogs = async () => {
+
+        return this.api.get('/api/doglist');
     }
 }
 

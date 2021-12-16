@@ -30,10 +30,10 @@ class UserService {
 
         return this.api.put(`/api/users/current`, requestBody);
     }
-
+    //!
     // GET /api/users/current/posts
-    postsOfCurrentUser = async () => {
-        return this.api.get('/api/users/current/posts');
+    postsOfCurrentUser = async (userId) => {
+        return this.api.get(`/api/users/current/${userId}/posts`);
     }
     // GET /api/users/current/posts/:postId
     onePostOfCurrentUser = async (postId) => {
@@ -51,8 +51,8 @@ class UserService {
     }
 
     //router.get("/api/users/current/interactions
-    userInteractions = async (commentId) => {
-        return this.api.get("/api/users/current/interactions", commentId)
+    allInteractions = async () => {
+        return this.api.get("/api/users/current/interactions")
     };
 
 }

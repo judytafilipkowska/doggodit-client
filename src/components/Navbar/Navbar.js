@@ -10,11 +10,11 @@ function Navbar() {
 
   return (
     <nav className="Navbar">
-      {/* <Link to="/">
+      <Link to="/">
         <button>Home</button>
       </Link>
 
-      {isLoggedIn && (
+      {/* {isLoggedIn && (
         <>
           <button onClick={logOutUser}>Logout</button>
         </>
@@ -30,7 +30,7 @@ function Navbar() {
             <button>Login</button>
           </Link>
         </>
-      )} */}
+      )}  */}
 
       <div className="profile-img-wrapper">
         {user && (

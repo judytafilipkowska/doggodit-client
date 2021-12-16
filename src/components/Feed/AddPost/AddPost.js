@@ -13,9 +13,9 @@ import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 
 
-function AddPost() {
+function AddPost({ refreshPost }) {
 
-    const { refreshPost, userId } = useContext(AuthContext);
+    const { userId } = useContext(AuthContext);
 
 
     const [tag, setTag] = useState("");

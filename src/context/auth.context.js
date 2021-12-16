@@ -6,8 +6,7 @@ const AuthContext = createContext();
 
 function AuthProviderWrapper({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
-
+  const [user, setUser] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   const verifyStoredToken = async () => {

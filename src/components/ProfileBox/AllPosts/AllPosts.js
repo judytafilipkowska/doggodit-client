@@ -1,42 +1,49 @@
 import { useState, useEffect, useContext } from "react";
-import PostBox from "../../Feed/PostBox/PostBox";
+
 import userService from "../../../services/user.service";
 import { useNavigate, useParams } from "react-router";
-import { Navigate } from "react-router";
-import { AuthContext } from '../../../context/auth.context';
 
 import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
+
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
+import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { red } from '@mui/material/colors';
+import { AuthContext } from "../../../context/auth.context";
 
+import Interactions from "../Interactions/Interactions";
+
+
+import ProfileBox from "../ProfileBox";
 import { Link } from "react-router-dom";
 
 function AllPosts() {
+    const { user } = useContext(AuthContext);
 
+    const Item = styled(Paper)(({ theme }) => ({
+        ...theme.typography.body2,
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    }));
 
-    const [posts, setPosts] = useState([]);
+    const [myPosts, setMyPosts] = useState([]);
     const [errorMessage, setErrorMessage] = useState(undefined);
-    const { postId } = useParams();
+    const { postId, userId } = useParams();
     const navigate = useNavigate();
-
-    console.log(postId)
 
     useEffect(() => {
         const postsOfCurrentUser = async () => {
 
             try {
-                const response = await userService.postsOfCurrentUser();
-                setPosts(response.data);
-                console.log(response.data);
+                const response = await userService.postsOfCurrentUser(userId);
+                setMyPosts(response.data.posts);
+
             } catch (error) {
                 setErrorMessage("Something went wrong");
             }
@@ -62,130 +69,86 @@ function AllPosts() {
     };
     return (
         <div>
-            <h4>Your posts</h4>
+            <>
+                <Grid container spacing={3}>
+                    <Grid item xs>
+                        <Item>
+                            <ProfileBox /> </Item>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Item>
+                            <h4>Your posts</h4>
 
-            {posts.map((post) =>
-                post.image ?
-                    (
-                        <>
+                            {myPosts.map((onePost) =>
+                                onePost.image ?
+                                    (
+                                        <>
 
-                            <div className="SignupPage">
-                                <Link to={`/user/posts/${post._id}`}>
-                                    <Card sx={{ maxWidth: 700 }}>
-                                        <CardHeader
-                                            avatar={
-                                                <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                                                    <Avatar alt="avatar" src={post.createdBy.image} />
-                                                </Avatar>
-                                            } title={post.createdBy.name}
-                                            subheader={post.tag}
-                                        />
-                                        <CardMedia
-                                            component="img"
-                                            height="400"
-                                            image={post.postImage}
+                                            <div className="SignupPage">
+                                                {/* <Link to={`/user/posts/${post._id}`}> */}
+                                                <Card sx={{ maxWidth: 700 }}>
+                                                    <CardMedia
+                                                        component="img"
+                                                        height="400"
+                                                        image={onePost.postImage}
 
-                                            alt="post picture"
-                                        />
+                                                        alt="post picture"
+                                                    />
 
-                                        <CardContent>
-                                            <Typography variant="body2" color="text.secondary">
-                                                {post.postText}
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions disableSpacing>
-                                            <ExpandMore
-                                                expand={expanded}
-                                                onClick={handleExpandClick}
-                                                aria-expanded={expanded}
-                                                aria-label="Comments"
-                                            >
-                                                💬
-                                            </ExpandMore>
-                                        </CardActions>
-                                        <Collapse in={expanded} timeout="auto" unmountOnExit>
-                                            <CardContent>
-                                                {post.comments.map((comment) => {
-                                                    return (
-                                                        <>
-                                                            <Typography paragraph>
-                                                                <Avatar alt="avatar" src={comment.addedBy.image} />
-                                                                <h6>{comment.addedBy.name}</h6>
-                                                                <p>{comment.commentText}</p>
-                                                            </Typography>
-                                                        </>
-                                                    )
-                                                })}
+                                                    <CardContent>
+                                                        <Typography variant="body2" color="text.secondary">
+                                                            {onePost.tag}
+                                                        </Typography>
+                                                        <Typography variant="body2" color="text.secondary">
+                                                            {onePost.postText}
+                                                        </Typography>
+                                                    </CardContent>
+                                                </Card>
+                                                {/* </Link> */}
+                                                <Link to={`/user/posts/${onePost._id}/edit`}>
+                                                    <h2>Edit</h2>
+                                                </Link>
 
-                                            </CardContent>
-                                        </Collapse>
-                                    </Card>
-                                </Link>
-                                <Link to={`/user/posts/${post._id}/edit`}>
-                                    <h2>Edit</h2>
-                                </Link>
+                                            </div>
 
-                            </div>
+                                        </>
+                                    ) : (
+                                        <>
 
-                        </>
-                    ) : (
-                        <>
+                                            <div className="SignupPage">
+                                                {/* <Link to={`/user/posts/${post._id}`}> */}
+                                                <Card sx={{ maxWidth: 700 }}>
 
-                            <div className="SignupPage">
-                                <Link to={`/user/posts/${post._id}`}>
-                                    <Card sx={{ maxWidth: 700 }}>
-                                        <CardHeader
-                                            avatar={
-                                                <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                                                    <Avatar alt="avatar" src={post.createdBy.image} />
-                                                </Avatar>
-                                            } title={post.createdBy.name}
-                                            subheader={post.tag}
-                                        />
+                                                    <CardContent>
+                                                        <Typography variant="body2" color="text.secondary">
+                                                            {onePost.tag}
+                                                        </Typography>
+                                                        <Typography variant="body2" color="text.secondary">
+                                                            {onePost.postText}
+                                                        </Typography>
+                                                    </CardContent>
 
-                                        <CardContent>
-                                            <Typography variant="body2" color="text.secondary">
-                                                {post.postText}
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions disableSpacing>
-                                            <ExpandMore
-                                                expand={expanded}
-                                                onClick={handleExpandClick}
-                                                aria-expanded={expanded}
-                                                aria-label="Comments"
-                                            >
-                                                💬
-                                            </ExpandMore>
-                                        </CardActions>
-                                        <Collapse in={expanded} timeout="auto" unmountOnExit>
-                                            <CardContent>
-                                                {post.comments.map((comment) => {
-                                                    return (
-                                                        <>
-                                                            <Typography paragraph>
-                                                                <Avatar alt="avatar" src={comment.addedBy.image} />
-                                                                <h6>{comment.addedBy.name}</h6>
-                                                                <p>{comment.commentText}</p>
-                                                            </Typography>
-                                                        </>
-                                                    )
-                                                })}
 
-                                            </CardContent>
-                                        </Collapse>
-                                    </Card>
-                                </Link>
-                                <Link to={`/user/posts/${post._id}/edit`}>
-                                    <h2>Edit</h2>
-                                </Link>
+                                                </Card>
+                                                {/* </Link> */}
+                                                <Link to={`/user/posts/${onePost._id}/edit`}>
+                                                    <h2>Edit</h2>
+                                                </Link>
 
-                            </div>
+                                            </div>
 
-                        </>
-                    ))
-            }
+                                        </>
+                                    ))
+                            }
+                        </Item>
+                    </Grid>
+                    <Grid item xs>
+                        <h4>hrerehreh</h4>
+                    </Grid>
+                </Grid>
+            </>
         </div>
+
     )
 
 }

@@ -2,13 +2,27 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../../context/auth.context";
 import { useParams, useNavigate } from "react-router";
 import userService from "../../../services/user.service";
+import ProfileBox from "../ProfileBox";
 
+
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
 function EditPost() {
+    const Item = styled(Paper)(({ theme }) => ({
+        ...theme.typography.body2,
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    }));
+
 
     const { user } = useContext(AuthContext);
 
-    const { postId } = useParams();
+    const { postId, userId } = useParams();
 
 
     const [postText, setPostText] = useState("");
@@ -52,7 +66,7 @@ function EditPost() {
     const deletePost = async () => {
         try {
             const response = await userService.deleteOnePostOfCurrentUser(postId)
-            navigate("/user/posts")
+            navigate("/profile");
         } catch (error) {
             setErrorMessage("Something went wrong");
         }
@@ -61,15 +75,36 @@ function EditPost() {
 
     return (
         <div>
-            <h4>Edit your post here</h4>
-            <form onSubmit={handleSubmit}>
+            <>
+                <Grid container spacing={3}>
+                    <Grid item xs>
+                        <Item>
+                            <ProfileBox /> </Item>
+                    </Grid>
+                    <Grid item xs={6}>
 
-                <label>Text</label>
-                <input type="text" name="postText" value={postText} onChange={handleTextPost} />
 
-                <button type="submit">Save</button>
-                <button onClick={deletePost}>Delete the post</button>
-            </form>
+                        <h4>Edit your post here</h4>
+                        <form onSubmit={handleSubmit}>
+
+                            <TextField fullWidth id="outlined-textarea"
+                                label="Edit post" name="postText"
+                                placeholder="Post..."
+                                multiline onChange={handleTextPost} />
+                            {/* <label>Text</label>
+                <input type="text" name="postText" value={postText} onChange={handleTextPost} /> */}
+                            <Button size="small" type="submit">Save</Button>
+                            {/* <button type="submit">Save</button> */}
+                            <Button size="small" onClick={deletePost}>Delete the post</Button>
+                            {/* <button onClick={deletePost}>Delete the post</button> */}
+                        </form>
+
+                    </Grid>
+                    <Grid item xs>
+                        <Item> HERE DOG </Item>
+                    </Grid>
+                </Grid>
+            </>
         </div>
     );
 }

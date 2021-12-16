@@ -20,7 +20,7 @@ import { Button } from '@mui/material';
 import { AuthContext } from '../../../context/auth.context';
 import { useParams } from 'react-router';
 
-function PostBox({ post }) {
+function PostBox({ post, refreshPost }) {
 
 
     const [commentText, setCommentText] = useState("");
@@ -34,7 +34,10 @@ function PostBox({ post }) {
             const requestBody = { commentText, postId: post._id }
             // addedBy: user._id
             const response = await postService.createComment(requestBody)
-            setCommentText(response);
+            setCommentText("");
+
+            refreshPost(response)
+                ``
         } catch (error) {
             setErrorMessage("Something went wrong");
         }
@@ -106,7 +109,7 @@ function PostBox({ post }) {
                             <>
                                 <Typography paragraph>
                                     <Avatar alt="avatar" src={comment.addedBy.image} />
-                                    <h6>{comment.addedBy.name}</h6>
+                                    <h6>{comment.addedBy}</h6>
                                     <p>{comment.commentText}</p>
                                 </Typography>
                             </>

@@ -72,11 +72,11 @@ function AllPosts() {
             <>
                 <Grid container spacing={3}>
                     <Grid item xs>
-                        <Item>
+                        <Item style={{ backgroundColor: "#ca90db6f" }}>
                             <ProfileBox /> </Item>
                     </Grid>
                     <Grid item xs={6}>
-                        <Item>
+                        <Item style={{ backgroundColor: "#ca90db6f" }}>
                             <h4>Your posts</h4>
 
                             {myPosts.map((onePost) =>
@@ -143,7 +143,7 @@ function AllPosts() {
                         </Item>
                     </Grid>
                     <Grid item xs>
-                        <h4>hrerehreh</h4>
+
                     </Grid>
                 </Grid>
             </>

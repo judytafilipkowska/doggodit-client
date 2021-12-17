@@ -46,11 +46,11 @@ function Interactions() {
 
             <Grid container spacing={3}>
                 <Grid item xs>
-                    <Item>
+                    <Item style={{ backgroundColor: "#ca90db6f" }}>
                         <ProfileBox /> </Item>
                 </Grid>
                 <Grid item xs={6}>
-                    <Item>
+                    <Item style={{ backgroundColor: "#ca90db6f" }}>
                         {interactions.length && interactions.map((interaction) =>
                             interaction.post.postImage ? (
                                 <div key={interactions._id}>
@@ -108,7 +108,7 @@ function Interactions() {
                     </Item>
                 </Grid>
                 <Grid item xs>
-                    <h4>hrerehreh</h4>
+
                 </Grid>
             </Grid>
         </div>

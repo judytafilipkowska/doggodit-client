@@ -30,18 +30,17 @@ function HomePage() {
     <>
 
       <Grid container spacing={3}>
-        <Grid item xs>
+        <Grid item xs >
 
-          <Item><ProfileBox /></Item>
+          <Item style={{ overflow: "auto", height: 1200, backgroundColor: "#ca90db6f" }}><ProfileBox /></Item>
 
         </Grid>
 
         <Grid item xs={6}>
-          <Item> <Feed /></Item>
+          <Item style={{ overflow: "auto", height: 1200, backgroundColor: "#ca90db6f" }}> <Feed /></Item>
         </Grid>
         <Grid item xs>
-          <Item>
-            HERE DOG
+          <Item style={{ overflow: "auto", height: 1200, backgroundColor: "#ca90db6f" }}>
             <DogBox />
           </Item>
         </Grid>
@@ -53,16 +52,15 @@ function HomePage() {
       <Grid container spacing={3}>
         <Grid item xs>
 
-          (<Item><LoginBox /></Item>)
+          <Item style={{ overflow: "auto", height: 1200, backgroundColor: "#ca90db6f" }}><LoginBox /></Item>
 
         </Grid>
 
         <Grid item xs={6}>
-          <Item> <Feed /></Item>
+          <Item style={{ overflow: "auto", height: 1200, backgroundColor: "#ca90db6f" }}> <Feed /></Item>
         </Grid>
         <Grid item xs>
-          <Item>
-            HERE DOG
+          <Item style={{ overflow: "auto", height: 1200, backgroundColor: "#ca90db6f" }}>
             <DogBox />
           </Item>
         </Grid>

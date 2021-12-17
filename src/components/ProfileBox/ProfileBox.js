@@ -23,7 +23,7 @@ function ProfileBox() {
 
     return (
         <div key={user._id}>
-            <Card sx={{ width: 345, bgcolor: purple100 }}>
+            <Card sx={{ width: 345 }}>
                 <CardMedia
                     component="img"
                     alt="profile pic"

@@ -70,11 +70,11 @@ function EditBox() {
         <>
             <Grid container spacing={3}>
                 <Grid item xs>
-                    <Item>
+                    <Item style={{ backgroundColor: "#ca90db6f" }}>
                         <ProfileBox /> </Item>
                 </Grid>
                 <Grid item xs={6}>
-                    <Item>
+                    <Item style={{ backgroundColor: "#ca90db6f" }}>
                         <div className="SignupPage">
                             <h2>edit here</h2>
 
@@ -97,7 +97,7 @@ function EditBox() {
                     </Item>
                 </Grid>
                 <Grid item xs>
-                    <Item> HERE DOG </Item>
+
                 </Grid>
             </Grid>
         </ >

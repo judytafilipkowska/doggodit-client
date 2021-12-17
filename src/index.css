@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+  background-color: #ca90db6a;
 }
 
 a {
@@ -32,7 +33,7 @@ textarea {
 }
 
 nav {
-  background: #515f7d;
+  background: #c990db;
   color: white;
   padding: 0px 20px;
   box-shadow: 0px 1px 2px gray;
@@ -54,7 +55,7 @@ nav li {
   box-shadow: 0px 2px 3px grey;
   margin: 0 auto;
   margin-bottom: 20px;
-  background: #94a7c8;
+  background: #c990db;
   border-radius: 4px;
 }
 
@@ -85,11 +86,11 @@ nav li {
 
 .SignupPage,
 .LoginBox {
-  background-color: #608dd5;
+  background-color: #c990db
 }
 
 .LoginBox {
-  background-color: #94a7c8;
+  background-color  :#c990db
 }
 
 .EditProjectPage form,

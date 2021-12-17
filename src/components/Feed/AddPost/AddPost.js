@@ -31,7 +31,7 @@ function AddPost({ refreshPost }) {
             uploadData.append("image", e.target.files[0])
             const response = await fileService.uploadImage(uploadData);
             setPostImage(response.data.secure_url);
-            ;
+
         } catch (error) {
             setErrorMessage("Something went wrong")
         }
@@ -84,7 +84,7 @@ function AddPost({ refreshPost }) {
                         multiline onChange={handleTextPost} />
 
 
-                    <label>Add a pic</label>
+                    <label></label>
                     <input type="file" onChange={handlePostImage} />
 
 

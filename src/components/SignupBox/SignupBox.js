@@ -23,7 +23,7 @@ function SignupBox() {
             uploadData.append("image", e.target.files[0])
             const response = await fileService.uploadImage(uploadData);
 
-            setImage(response.data.secure_url)
+            setImage(response.data.secure_url);
 
             return
         } catch (error) {

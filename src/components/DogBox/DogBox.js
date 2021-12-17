@@ -34,7 +34,8 @@ function DogBox() {
 
     useEffect(() => {
         getAllDogs();
-    })
+    }, []);
+
     return (
         <div>
             {dogs.length && dogs.map((dog) => (

@@ -79,7 +79,7 @@ function AddPost({ refreshPost }) {
 
 
                     <TextField fullWidth id="outlined-textarea"
-                        label="New post" name="postText"
+                        label="New post" value={postText} name="postText"
                         placeholder="Post..."
                         multiline onChange={handleTextPost} />
 

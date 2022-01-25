@@ -4,8 +4,6 @@ import Typography from '@mui/material/Typography';
 
 function CommentBox({ comment }) {
 
-
-
     return (
         <>
             <Typography paragraph>

@@ -34,17 +34,12 @@ function SignupBox() {
     const handleSignupSubmit = async (e) => {
         try {
             e.preventDefault();
-            // Create an object representing the request body
             const requestBody = { email, password, name };
 
 
             await authService.signup(requestBody);
-
-
-            // If the request is successful navigate to login page
             navigate("/login");
         } catch (error) {
-            // If the request resolves with an error, set the error message in the state
             setErrorMessage("Something went wrong");
         }
     };

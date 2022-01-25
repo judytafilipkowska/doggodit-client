@@ -20,7 +20,6 @@ function ProfileBox() {
 
     const { user, logOutUser } = useContext(AuthContext);
 
-
     return (
         <div key={user._id}>
             <Card sx={{ width: 345 }}>
@@ -52,28 +51,6 @@ function ProfileBox() {
             </Card>
 
         </div >
-
-
-
-
-        // <div className="SignupPage">
-
-        //     <div key={user._id}>
-        //         <img src={user.image} alt="oezus" style={{ width: "200px" }} />
-        //         <h5></h5>
-        //         <p>Interactions</p>
-        //         <Link to="/user/posts">
-        //             <p>Posts</p>
-        //         </Link>
-        //         <Link to="/user/edit">
-        //             <p>Edit</p>
-        //         </Link>
-        //         <Link to="/">
-        //             <p onClick={logOutUser} >Log out</p>
-        //         </Link>
-        //     </div>
-        // </div>
-
     );
 }
 

@@ -4,7 +4,6 @@ import userService from "../../services/user.service";
 import { useNavigate } from "react-router";
 import { AuthContext } from './../../context/auth.context'
 import ProfileBox from "../ProfileBox/ProfileBox";
-
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';

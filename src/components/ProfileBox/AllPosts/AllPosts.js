@@ -85,7 +85,6 @@ function AllPosts() {
                                         <>
 
                                             <div className="SignupPage">
-                                                {/* <Link to={`/user/posts/${post._id}`}> */}
                                                 <Card sx={{ maxWidth: 700 }}>
                                                     <CardMedia
                                                         component="img"
@@ -104,7 +103,6 @@ function AllPosts() {
                                                         </Typography>
                                                     </CardContent>
                                                 </Card>
-                                                {/* </Link> */}
                                                 <Link to={`/user/posts/${onePost._id}/edit`}>
                                                     <h2>Edit</h2>
                                                 </Link>
@@ -116,7 +114,6 @@ function AllPosts() {
                                         <>
 
                                             <div className="SignupPage">
-                                                {/* <Link to={`/user/posts/${post._id}`}> */}
                                                 <Card sx={{ maxWidth: 700 }}>
 
                                                     <CardContent>
@@ -130,7 +127,6 @@ function AllPosts() {
 
 
                                                 </Card>
-                                                {/* </Link> */}
                                                 <Link to={`/user/posts/${onePost._id}/edit`}>
                                                     <h2>Edit</h2>
                                                 </Link>

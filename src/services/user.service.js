@@ -6,9 +6,7 @@ class UserService {
             baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
         });
 
-        // Automatically set JWT token in the headers for every request
         this.api.interceptors.request.use((config) => {
-            // Retrieve the JWT token from the local storage
             const storedToken = localStorage.getItem("authToken");
 
             if (storedToken) {
@@ -30,7 +28,6 @@ class UserService {
 
         return this.api.put(`/api/users/current`, requestBody);
     }
-    //!
     // GET /api/users/current/posts
     postsOfCurrentUser = async (userId) => {
         return this.api.get(`/api/users/current/${userId}/posts`);
@@ -57,7 +54,6 @@ class UserService {
 
 }
 
-// Create one instance of the service
 const userService = new UserService();
 
 export default userService;

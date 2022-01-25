@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import dogService from "../../services/dog.service";
-import DogCard from "./DogCard";
-import axios from "axios";
 
 function DogBox() {
 
@@ -17,20 +15,6 @@ function DogBox() {
             setErrorMessage("Something went wrong");
         }
     }
-
-    //     useEffect(() => {
-    //         const fetchData = async () => {
-    //          const response = await axios.get
-    //             (`https://api.thedogapi.com/v1/breeds`,
-    //                 {
-    //                     headers:
-    //                         { 'x-api-key': process.env.API_KEY }
-    //                 }
-    //                 );
-    //                 const data = response.data
-    //                 setDogs(data)
-    //     } fetchData();
-    // },[])
 
     useEffect(() => {
         getAllDogs();

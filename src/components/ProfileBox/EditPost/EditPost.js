@@ -3,8 +3,6 @@ import { AuthContext } from "../../../context/auth.context";
 import { useParams, useNavigate } from "react-router";
 import userService from "../../../services/user.service";
 import ProfileBox from "../ProfileBox";
-
-
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
@@ -18,19 +16,11 @@ function EditPost() {
         textAlign: 'center',
         color: theme.palette.text.secondary,
     }));
-
-
     const { user } = useContext(AuthContext);
-
-    const { postId, userId } = useParams();
-
-
+    const { postId } = useParams();
     const [postText, setPostText] = useState("");
     const [errorMessage, setErrorMessage] = useState(undefined);
-
     const navigate = useNavigate();
-
-
     const handleTextPost = (e) => setPostText(e.target.value);
 
 
@@ -91,12 +81,8 @@ function EditPost() {
                                 label="Edit post" name="postText"
                                 placeholder="Post..."
                                 multiline onChange={handleTextPost} />
-                            {/* <label>Text</label>
-                <input type="text" name="postText" value={postText} onChange={handleTextPost} /> */}
                             <Button size="small" type="submit">Save</Button>
-                            {/* <button type="submit">Save</button> */}
                             <Button size="small" onClick={deletePost}>Delete the post</Button>
-                            {/* <button onClick={deletePost}>Delete the post</button> */}
                         </form>
 
                     </Grid>

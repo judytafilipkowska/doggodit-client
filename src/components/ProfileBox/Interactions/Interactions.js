@@ -108,14 +108,10 @@ function Interactions() {
                     </Item>
                 </Grid>
                 <Grid item xs>
-
                 </Grid>
             </Grid>
         </div>
-
     );
-
-
 }
 
 export default Interactions;

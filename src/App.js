@@ -4,9 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 
 import HomePage from "./pages/HomePage/HomePage";
-// import SignupPage from "./pages/SignupPage/SignupPage";
-// import LoginPage from "./pages/LoginPage/LoginPage";
-// import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupBox from "./components/SignupBox/SignupBox";
 import LoginBox from "./components/LoginBox/LoginBox";
 import ProfileBox from "./components/ProfileBox/ProfileBox";

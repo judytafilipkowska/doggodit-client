@@ -1,10 +1,8 @@
 
 import LoginBox from "../../components/LoginBox/LoginBox";
 import Feed from "../../components/Feed/Feed";
-
 import ProfileBox from "../../components/ProfileBox/ProfileBox";
 import DogBox from "../../components/DogBox/DogBox";
-
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 import { styled } from '@mui/material/styles';

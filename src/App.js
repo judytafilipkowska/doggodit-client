@@ -21,11 +21,11 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<IsAnon> <SignupBox /> </IsAnon>} />
+        {/* <Route path="/signup" element={<IsAnon> <SignupBox /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <LoginBox /> </IsAnon>} />
         <Route path="/profile" element={<IsPrivate> <ProfileBox /> </IsPrivate>} />
         <Route path="/user/edit" element={<IsPrivate><EditBox /></IsPrivate>} />
@@ -33,7 +33,7 @@ function App() {
         <Route path="/user/posts/:postId" element={<IsPrivate><SinglePost /></IsPrivate>} />
         <Route path="/user/posts/:postId/edit" element={<IsPrivate><EditPost /></IsPrivate>} />
         <Route path="/user/interactions" element={<IsPrivate><Interactions /></IsPrivate>} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="*" element={<ErrorPage />} /> */}
         debugging;
       </Routes>
 

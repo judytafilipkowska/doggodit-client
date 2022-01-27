@@ -36,7 +36,8 @@ function LoginBox(props) {
 
     return (
         <div className="LoginBox">
-            <h1>Login</h1>
+            <h1>Good to see you again!</h1>
+
 
             <form onSubmit={handleLoginSubmit}>
                 <label>Email:</label>
@@ -50,8 +51,8 @@ function LoginBox(props) {
             </form>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-            <p>Don't have an account yet?</p>
-            <Link to={"/signup"}> Sign Up</Link>
+            <h3>You don't have an account yet?</h3>
+            <Link to={"/signup"}> <span>Sign up here</span></Link>
         </div>
     );
 }

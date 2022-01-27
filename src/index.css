@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #ca90db6a;
+  background-color: #6ab3c6;
 }
 
 a {
@@ -17,10 +17,10 @@ select {
   height: 40px;
 }
 
-label {
+/* label {
   width: 200px;
   display: block;
-}
+} */
 
 input,
 textarea {
@@ -31,12 +31,12 @@ textarea {
 }
 
 nav {
-  background: #c990db;
+  background: #592c1e;
   color: white;
   padding: 0px 20px;
   box-shadow: 0px 1px 2px gray;
-  width: 100%;
-  margin-bottom: 15px;
+  height: 10vh;
+
   padding: 5px;
 }
 
@@ -48,7 +48,7 @@ nav li {
 }
 
 .card {
-  width: 400px;
+  width: 100vh;
   padding: 10px;
   box-shadow: 0px 2px 3px grey;
   margin: 0 auto;
@@ -84,12 +84,9 @@ nav li {
 
 .SignupPage,
 .LoginBox {
-  background-color: #c990db;
+  background-color: rgb(106,179,198, 0.6);
 }
 
-.LoginBox {
-  background-color: #c990db;
-}
 
 .EditProjectPage form,
 .AddTask form,

@@ -1,15 +1,19 @@
+import "./Navbar.css"
 import { Link } from "react-router-dom";
-import Button from '@mui/material/Button';
+import Logo from "../../image/logo.png"
 
 
 function Navbar() {
 
   return (
-    <nav className="Navbar">
-      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-        <Button size="big" >
-          <img src="../pngfind.com-house-icon-png-1012390.png" alt="home" style={{ height: 50 }} />  </Button>
-      </Link>
+    <nav className="navbar">
+
+      <div className="logo">
+        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <img src={Logo} alt="" className="logo-img" />
+        </Link>
+      </div>
+
     </nav>
   );
 }

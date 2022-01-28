@@ -1,4 +1,4 @@
-
+import "./SignupBox.css"
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -45,27 +45,29 @@ function SignupBox() {
     };
 
     return (
-        <div className="SignupPage">
+        <div className="signup-box">
             <h1>Sign Up</h1>
 
             <form onSubmit={handleSignupSubmit}>
-                <label>Email:</label>
-                <input type="text" name="email" value={email} onChange={handleEmail} />
 
-                <label>Password:</label>
+                <input type="text" name="email" placeholder="Email" value={email} onChange={handleEmail} />
+
                 <input
+
                     type="password"
                     name="password"
+                    placeholder="Password"
                     value={password}
                     onChange={handlePassword}
                 />
 
-                <label>Name:</label>
-                <input type="text" name="name" value={name} onChange={handleName} />
 
-                <label>Picture:</label>
-                <input type="file" value={image} onChange={handleImage} />
+                <input type="text" name="name" placeholder="Name" value={name} onChange={handleName} />
 
+                {/* <label>Picture:</label> */}
+                {/* <input type="file" value={image} onChange={handleImage} /> */}
+                {/* <label for="files" className="button">Select picture</label>
+                <input id="files" style={{ display: "none" }} type="file" value={image} onChange={handleImage} /> */}
 
                 <button type="submit">Sign Up</button>
             </form>
@@ -73,7 +75,7 @@ function SignupBox() {
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
             <p>Already have account?</p>
-            <Link to={"/login"}> Login</Link>
+            <Link to={"/"}> Login here</Link>
         </div>
     );
 }

@@ -21,12 +21,12 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Navbar /> */}
+      <Navbar />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/signup" element={<IsAnon> <SignupBox /> </IsAnon>} />
-        <Route path="/login" element={<IsAnon> <LoginBox /> </IsAnon>} />
+        <Route path="/signup" element={<IsAnon> <SignupBox /> </IsAnon>} />
+        {/* <Route path="/login" element={<IsAnon> <LoginBox /> </IsAnon>} />
         <Route path="/profile" element={<IsPrivate> <ProfileBox /> </IsPrivate>} />
         <Route path="/user/edit" element={<IsPrivate><EditBox /></IsPrivate>} />
         <Route path="/user/:userId/posts" element={<IsPrivate><AllPosts /></IsPrivate>} />

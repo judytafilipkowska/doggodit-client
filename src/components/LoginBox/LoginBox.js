@@ -1,7 +1,7 @@
+import "./LoginBox.css"
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-
 import authService from "../../services/auth.service";
 
 function LoginBox(props) {
@@ -35,16 +35,15 @@ function LoginBox(props) {
     };
 
     return (
-        <div className="LoginBox">
+        <div className="login-box">
             <h1>Good to see you again!</h1>
 
 
             <form onSubmit={handleLoginSubmit}>
-                <label>Email:</label>
-                <input type="text" name="email" value={email} onChange={handleEmail} />
+                <input type="text" name="email" placeholder="Email" value={email} onChange={handleEmail} />
 
-                <label>Password:</label>
-                <input type="password" name="password" value={password} onChange={handlePassword} />
+              
+                <input type="password" name="password" placeholder="Password" value={password} onChange={handlePassword} />
 
                 <button type="submit">Login</button>
 

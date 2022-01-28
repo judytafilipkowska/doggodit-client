@@ -15,11 +15,9 @@ import "./HomePage.css"
 function HomePage() {
   return (
     <div className="home">
-      {/* <img src={HomePageImage} alt="" className="background" /> */}
       <div className="home-left">
         <LoginBox />
       </div>
-
     </div>
 
 

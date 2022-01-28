@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #6ab3c6;
+  background-image: url("./image/bg.png");
 }
 
 a {
@@ -29,7 +29,7 @@ textarea {
   display: inline-block;
   margin: 10px;
 }
-
+/* 
 nav {
   background: #592c1e;
   color: white;
@@ -38,14 +38,14 @@ nav {
   height: 10vh;
 
   padding: 5px;
-}
-
+} */
+/* 
 nav li {
   list-style: none;
   color: white;
   font-size: 24px;
   font-weight: 600;
-}
+} */
 
 .card {
   width: 100vh;
@@ -68,14 +68,14 @@ nav li {
 .SignupPage,
 .LoginBox {
   background: #f9eec3;
-  border: 1px solid grey;
-  box-shadow: 0px 2px 3px grey;
-  width: 400px;
+  border: 0.06rem solid grey;
+  box-shadow: 0px 0.1rem 0.5rem grey;
+  width: 25rem;
+  height: 30rem;
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 20px;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 1.5rem;
+  border-radius: 0.6rem;
 }
 
 .EditProjectPage {
@@ -84,9 +84,8 @@ nav li {
 
 .SignupPage,
 .LoginBox {
-  background-color: rgb(106,179,198, 0.6);
+  background-color: rgb(106, 179, 198, 0.6);
 }
-
 
 .EditProjectPage form,
 .AddTask form,

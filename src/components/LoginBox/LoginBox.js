@@ -28,7 +28,7 @@ function LoginBox(props) {
 
             logInUser(token);
 
-            navigate("/");
+            navigate("/feed");
         } catch (error) {
             setErrorMessage("Something went wrong");
         }

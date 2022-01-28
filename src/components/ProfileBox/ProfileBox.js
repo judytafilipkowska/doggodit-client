@@ -1,6 +1,7 @@
+import "./ProfileBox.css"
+
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-
 import { Link } from "react-router-dom";
 
 
@@ -22,7 +23,24 @@ function ProfileBox() {
 
     return (
         <div key={user._id}>
-            <Card sx={{ width: 345 }}>
+
+
+            <div className="profile-box">
+                <div className="top">
+                    <img src="#" alt="" className="profile-picture" />
+                </div>
+                <div className="bottom">
+                    <div className="bottom-wrapper">
+                        <div className="button">button</div>    
+                        <div className="button">button</div>    
+                        <div className="button">button</div>    
+                        <div className="button">button</div>    
+                    </div>
+                </div>
+            </div>
+
+        
+            {/* <Card sx={{ width: 345 }}>
                 <CardMedia
                     component="img"
                     alt="profile pic"
@@ -48,7 +66,7 @@ function ProfileBox() {
                         <Button size="small" sx={{ color: purple200 }} onClick={logOutUser} >Log out</Button>
                     </Link>
                 </CardActions>
-            </Card>
+            </Card> */}
 
         </div >
     );

@@ -13,7 +13,7 @@ import IsAnon from "./components/IsAnon/IsAnon";
 import Interactions from "./components/ProfileBox/Interactions/Interactions";
 import EditPost from "./components/ProfileBox/EditPost/EditPost"
 import SinglePost from "./components/ProfileBox/SinglePost/SinglePost";
-
+import FeedPage from "./pages/FeedPage/FeedPage";
 
 function App() {
 
@@ -21,13 +21,14 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+ 
 
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<IsAnon> <SignupBox /> </IsAnon>} />
-        {/* <Route path="/login" element={<IsAnon> <LoginBox /> </IsAnon>} />
-        <Route path="/profile" element={<IsPrivate> <ProfileBox /> </IsPrivate>} />
+        <Route path="/feed" element ={<isPrivate><FeedPage/></isPrivate>} />
+        {/* <Route path="/login" element={<IsAnon> <LoginBox /> </IsAnon>} /> */}
+        {/* <Route path="/profile" element={<IsPrivate> <ProfileBox /> </IsPrivate>} />
         <Route path="/user/edit" element={<IsPrivate><EditBox /></IsPrivate>} />
         <Route path="/user/:userId/posts" element={<IsPrivate><AllPosts /></IsPrivate>} />
         <Route path="/user/posts/:postId" element={<IsPrivate><SinglePost /></IsPrivate>} />

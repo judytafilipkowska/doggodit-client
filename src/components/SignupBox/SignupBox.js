@@ -38,7 +38,7 @@ function SignupBox() {
 
 
             await authService.signup(requestBody);
-            navigate("/login");
+            navigate("/");
         } catch (error) {
             setErrorMessage("Something went wrong");
         }
@@ -66,8 +66,8 @@ function SignupBox() {
 
                 {/* <label>Picture:</label> */}
                 {/* <input type="file" value={image} onChange={handleImage} /> */}
-                {/* <label for="files" className="button">Select picture</label>
-                <input id="files" style={{ display: "none" }} type="file" value={image} onChange={handleImage} /> */}
+                <label for="files" className="button">Select picture</label>
+                <input id="files" style={{ display: "none" }} type="file" value={image} onChange={handleImage} />
 
                 <button type="submit">Sign Up</button>
             </form>

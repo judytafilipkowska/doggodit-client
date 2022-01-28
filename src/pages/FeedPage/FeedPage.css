@@ -1,0 +1,18 @@
+.feed {
+    height: 100vh;
+    display: flex;
+    direction: row;
+   justify-content: center;
+}
+
+.feed-left {
+    flex:1;
+    background: rgb(106, 179, 198);
+    border-top:0.06rem solid white;
+    border-right:0.06rem solid white;
+    box-shadow: 0 0.1rem 0.5rem white;
+    
+}
+.feed-center {
+    flex:2;
+}
